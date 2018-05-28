@@ -111,7 +111,7 @@ public class BezoekInfo {
      * @return instantie van reader
      * @throws Prik2GoException bij IOException of ongeldige bestandskenmerken
      */
-    private static BufferedReader getReader(String filename) throws Prik2GoException {
+    public static BufferedReader getReader(String filename) throws Prik2GoException {
         File file;
         FileReader fileReader;
         BufferedReader bufferedReader;
@@ -167,7 +167,7 @@ public class BezoekInfo {
      * @return instantie van parser
      * @throws Prik2GoException bij IOException
      */
-    private static CSVParser getParser(BufferedReader bufferedReader) throws Prik2GoException {
+    public static CSVParser getParser(BufferedReader bufferedReader) throws Prik2GoException {
 
         CSVParser csvParser;
 
@@ -248,10 +248,13 @@ public class BezoekInfo {
      * Print een bericht naar de console
      * @param message de af te drukken tekst
      */
-    private static void logMessage(String message) {
+    public static void logMessage(String message) {
         if (message != null) {
             System.out.println(message);
         }
     }
 
+    public static String[] getCsvHeader() {
+        return csvHeader;
+    }
 }

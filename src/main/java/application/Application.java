@@ -4,11 +4,13 @@ import domein.Prik2GoException;
 import org.apache.commons.cli.*;
 
 import static domein.BezoekInfo.schoonPostcodesOp;
+import static data.VulDatabase.vul;
 
 public class Application {
 
     public static void main(String[] args) {
 
+        String command = null;
         String bronbestand = null;
         String doelbestand = null;
 
@@ -20,7 +22,6 @@ public class Application {
             if (cmd.hasOption("bronbestand")) {
                 bronbestand = cmd.getOptionValue("bronbestand");
             }
-
             if (cmd.hasOption("doelbestand")) {
                 doelbestand = cmd.getOptionValue("doelbestand");
             }
@@ -30,6 +31,7 @@ public class Application {
 
         try {
             schoonPostcodesOp(bronbestand, doelbestand);
+            vul(doelbestand);
         } catch (Prik2GoException e) {
             e.printStackTrace();
         }
